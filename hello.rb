@@ -1,7 +1,4 @@
-# クラス
-# クラスメソッド
-# クラス変数
-# 定数
+# クラスの継承
 
 class User
 
@@ -29,16 +26,35 @@ class User
   def self.info
     puts "#{VERSION}: User Class, #{@@count} instance."
   end
-
-
 end
 
-tom = User.new("tom")
-bob = User.new("bob")
-steve = User.new("steve")
+# User: 親クラス、super class
+# AdminiUser: 子クラス、 Sub Class
 
-User.info
-p User::VERSION
+class AdminUser < User
+
+
+  def sayHello
+    puts "Hello from #{@name}"
+  end
+
+# オーバーライド
+  def sayHi
+    puts "hi! from admin!"
+  end
+end
+
+
+tom = AdminUser.new("tom")
+tom.sayHi
+tom.sayHello
+
+# tom = User.new("tom")
+# bob = User.new("bob")
+# steve = User.new("steve")
+#
+# User.info
+# p User::VERSION
 
 # din = User.new("din")
 # p din.info
