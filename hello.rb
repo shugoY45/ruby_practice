@@ -1,24 +1,20 @@
 # module
-# -名前空間
+# -ミックスイン
 
-def movie_encode
-end
+module Debug
 
-def movie_export
-end
-
-module Movie
-
-  VERSION = 1.1
-
-  def self.encode
-    puts "exporting..."
-  end
-  def self.export
-    puts "encoding..."
+  def info
+    puts "#{self.class} debug info ..."
   end
 end
 
-Movie.encode
-Movie.export
-p Movie::VERSION
+class Player
+  include Debug
+end
+
+class Monster
+  include Debug
+end
+
+Player.new.info
+Monster.new.info
