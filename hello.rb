@@ -1,18 +1,15 @@
-# loop
+# メソッド
 
-# i = 0
-# loop do
-#   p i
-#   i += 1
-# end
+def sayHi(name = "tom") #引数
+  score = 80
+  # puts "hi!　#{name}"
+  return "hi!　#{name}"
 
-# break
-# next
-
-10.times do |i|
-  if i ==7 then
-    #break
-    next
-  end
-  p i
 end
+
+# sayHi("taguchi")
+# sayHi "taguchi"
+# sayHi
+
+# p sayHi
+p score
