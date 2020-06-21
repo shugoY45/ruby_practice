@@ -1,37 +1,24 @@
-# アクセス権
-# -public
-# -protected
-# -private :レシーバーを指定できない
+# module
+# -名前空間
 
-
-class User
-
-  def sayHi
-    puts "hi!"
-    sayPrivate
-    #self.sayPrivate
-  end
-
-  private
-    def sayPrivate
-      puts "private"
-    end
-
+def movie_encode
 end
 
-class AdminUser < User
-  # def sayHello
-  #   puts "Hello"
-  #   sayPrivate
-  # end
-  def sayPrivate
-    puts "private from Admin"
-  end
-
+def movie_export
 end
 
-# User.new.sayPrivate #NG
-#User.new.sayHi
+module Movie
 
-#AdminUser.new.sayHello
-AdminUser.new.sayPrivate
+  VERSION = 1.1
+
+  def self.encode
+    puts "exporting..."
+  end
+  def self.export
+    puts "encoding..."
+  end
+end
+
+Movie.encode
+Movie.export
+p Movie::VERSION
