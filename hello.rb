@@ -1,20 +1,20 @@
-# module
-# -ミックスイン
+# 例外
 
-module Debug
+class MyError < StandardError ; end
 
-  def info
-    puts "#{self.class} debug info ..."
+x = gets.to_i
+
+begin
+  if x == 3
+    raise MyError
   end
+  p 100 / x
+rescue MyError
+  puts "not 3!"
+rescue => ex
+  p ex.message
+  p ex.class
+  puts "stopped!"
+ensure
+  puts "-- END --"
 end
-
-class Player
-  include Debug
-end
-
-class Monster
-  include Debug
-end
-
-Player.new.info
-Monster.new.info
